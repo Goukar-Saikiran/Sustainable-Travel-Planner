@@ -1,0 +1,204 @@
+#locationsearch input{
+    border-radius: 25px;
+}
+
+#mainPage{
+    margin-left: 30px;
+}
+
+.btn{
+    background-color: #588157;
+    color: white;
+}
+
+#locationSearch, #dateSearch{
+    border-right-style:solid ;
+    border-right-color: #588157;
+   
+}
+
+#homePage{
+    position: relative;
+    width: 1300px;
+    height: 500px;
+    padding-top: 50px;
+    text-align: center;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #AAC1B4;
+}
+
+#input{
+    position: relative;
+    padding: 20px;
+    border-radius: 25px;
+    background: #F3F9EC;
+    top: -100px;
+    width: 75%;
+    margin-left: 200px;
+}
+
+#homePage h3{
+    /* height: 149px; */
+    flex-shrink: 0;
+    color: #000;
+
+   
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#homePage h1{
+ margin-top: 20px;
+flex-shrink: 0;
+color: #000;
+
+text-align: center;
+font-family: Inter;
+font-size: 50px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+#homePage p {
+    flex-shrink: 0;
+    color: #344E41;
+    margin-top: 30px;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    width: 900px;
+    margin-left: 200px;
+
+}
+
+#EcoFrindlySuggestions{
+    width: 100%;
+    text-align: center;
+}
+
+#EcoFrindlySuggestions h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#EcoFrindlySuggestions .card{
+    width: 10px;
+}
+
+#EcoFrindlySuggestions .row{
+    justify-content: space-between;
+}
+
+#location{
+    display: flex;
+    overflow: hidden;
+}
+
+#EcoFrindlySuggestions .btn{
+    background-color: #344E41;
+    color: aliceblue;
+}
+
+#destinations h1{
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+#aboutUs p{
+    color: #344E41;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#aboutUs{
+    background-color: #AAC1B4;
+    justify-content: center;
+    width: 1350px;
+    margin-left: 10px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+#suggestions h1{
+    margin-bottom: 50px;
+}
+.dropdown-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    left: 0;
+    top: 70%; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.dropdown-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #344E41;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+.dropdown-item:hover {
+    background: #AAC1B4;
+    color: white;
+    transform: scale(1.02);
+}
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.profile-menu p {
+    margin: 5px 0;
+    text-align: center;
+    color: #333;
+}
+
+.profile-menu hr {
+    margin: 8px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+.profile-dropdown.active .profile-menu {
+    display: block;
+}
+
+body:not(.profile-dropdown) .profile-menu {
+    display: none;
+}
