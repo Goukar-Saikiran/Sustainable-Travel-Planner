@@ -46,7 +46,8 @@
                         <path d="M35.4647 34.2708C36.8799 35.1639 37.625 36.177 37.625 37.2083C37.625 38.2396 36.8799 39.2527 35.4647 40.1458C34.0494 41.0389 32.0138 41.7806 29.5625 42.2962C27.1112 42.8119 24.3305 43.0833 21.5 43.0833C18.6695 43.0833 15.8888 42.8119 13.4375 42.2962C10.9862 41.7806 8.95061 41.0389 7.53534 40.1458C6.12008 39.2527 5.375 38.2396 5.375 37.2083C5.375 36.177 6.12008 35.1639 7.53534 34.2708" stroke="#222222" stroke-width="1.2" stroke-linecap="round"/>
                     </svg>
                     <h2>Location</h2>
-                    <input class="form-control" type="text" placeholder="Where do you want to go?">
+                    <input class="form-control" type="text" id="locationInput" placeholder="Where do you want to go?" onkeyup="filterDropdown()">
+                        <ul id="locationDropdown" class="dropdown-menu"></ul>
                 </div>
                 <div class="col-4" id="dateSearch">
                     <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,14 +57,13 @@
                         <path d="M34.875 5.52081L34.875 14.3541" stroke="#222222" stroke-linecap="round"/>
                     </svg>
     
-                    <h2>Date</h2>
+                    <h3>Departure</h3>
                     <div id="startDate">
                         <input class="form-control" type="date">
-                        <h5>Start</h5>
                     </div>
+                    <h3>Return</h3>
                     <div id="startDate">
                         <input class="form-control" type="date" >
-                        <h5>End</h5>
                     </div>
                     
                 </div>
@@ -233,26 +233,8 @@
                     Join us in your journey to explore the planet responsibly, one sustainable adventure at a time! 🌎💚
                 </p>   
             </div>              
-
         </div>
-
         </div>  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   

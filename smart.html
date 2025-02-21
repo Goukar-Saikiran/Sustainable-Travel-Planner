@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .page {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .smart-search {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .packing-list {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .packing-list h2 {
+            margin-top: 0;
+        }
+
+        .packing-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .packing-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .packing-list li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .trip-details {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Initial Page -->
+        <div id="initialPage" class="smart-search">
+            <svg width="65px" viewBox="0 0 1024 1024" class="icon">
+                <!-- SVG content preserved from original -->
+            </svg>
+            <h3>Smart search</h3>
+            <h4>Get personalized suggestions according to your interests</h4>
+            <button id="startBtn" type="button" class="btn">Start</button>
+        </div>
+
+        <!-- Form Page -->
+        <div id="formPage" class="hidden">
+            <h2>Plan Your Trip</h2>
+            <form id="packingForm">
+                <div class="form-group">
+                    <label for="destination">Destination:</label>
+                    <input type="text" id="destination" required>
+                </div>
+                <div class="form-group">
+                    <label for="weather">Expected Weather:</label>
+                    <input type="text" id="weather" placeholder="e.g., sunny, rainy, cold, hot" required>
+                </div>
+                <div class="form-group">
+                    <label for="activities">Planned Activities:</label>
+                    <input type="text" id="activities" placeholder="e.g., hiking, swimming, sightseeing" required>
+                </div>
+                <button type="submit" class="btn">Generate Packing List</button>
+                <a href="logedHome.html" class="btn">Back to Home</a>
+            </form>
+        </div>
+
+        <!-- Results Page -->
+        <div id="resultsPage" class="hidden">
+            <div class="packing-list">
+                <h2>Your Packing List</h2>
+                <div id="tripDetails" class="trip-details"></div>
+                <ul id="packingListItems"></ul>
+                <button id="startOverBtn" class="btn" style="margin-top: 20px;">Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.getElementById('initialPage').classList.add('hidden');
+            document.getElementById('formPage').classList.add('hidden');
+            document.getElementById('resultsPage').classList.add('hidden');
+            
+            // Show the requested page
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        function generatePackingList(destination, weather, activities) {
+            let packingList = ["Passport/ID", "Travel tickets", "Wallet & Credit Cards", "Phone & Charger"];
+
+            if (weather.toLowerCase().includes("cold")) {
+                packingList.push("Warm Jacket", "Gloves", "Scarf", "Boots");
+            } else if (weather.toLowerCase().includes("hot")) {
+                packingList.push("Sunglasses", "Sunscreen", "Hat", "Light Clothing");
+            } else if (weather.toLowerCase().includes("rainy")) {
+                packingList.push("Umbrella", "Raincoat", "Waterproof Shoes");
+            }
+
+            if (activities.toLowerCase().includes("hiking")) {
+                packingList.push("Hiking Boots", "Backpack", "Water Bottle", "Trail Map");
+            }
+            if (activities.toLowerCase().includes("swimming")) {
+                packingList.push("Swimsuit", "Towel", "Flip Flops", "Waterproof Bag");
+            }
+            if (activities.toLowerCase().includes("sightseeing")) {
+                packingList.push("Camera", "Guidebook", "Comfortable Shoes");
+            }
+
+            return packingList;
+        }
+
+        // Event Listeners
+        document.getElementById('startBtn').addEventListener('click', () => {
+            showPage('formPage');
+        });
+
+        document.getElementById('packingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const destination = document.getElementById('destination').value;
+            const weather = document.getElementById('weather').value;
+            const activities = document.getElementById('activities').value;
+
+            // Generate and display packing list
+            const packingList = generatePackingList(destination, weather, activities);
+            
+            // Update trip details
+            document.getElementById('tripDetails').innerHTML = `
+                <p><strong>Destination:</strong> ${destination}</p>
+                <p><strong>Weather:</strong> ${weather}</p>
+                <p><strong>Activities:</strong> ${activities}</p>
+            `;
+
+            // Update packing list items
+            const packingListElement = document.getElementById('packingListItems');
+            packingListElement.innerHTML = packingList
+                .map(item => `<li>${item}</li>`)
+                .join('');
+
+            showPage('resultsPage');
+        });
+
+        document.getElementById('startOverBtn').addEventListener('click', () => {
+            document.getElementById('packingForm').reset();
+            showPage('formPage');
+        });
+    </script>
+</body>
+</html>

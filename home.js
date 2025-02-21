@@ -7,7 +7,7 @@ function filterDropdown() {
     let input = document.getElementById("locationInput").value.toLowerCase();
     let dropdown = document.getElementById("locationDropdown");
     dropdown.innerHTML = "";
-
+    
     if (input.length === 0) {
         dropdown.style.display = "none";
         return;
@@ -39,28 +39,15 @@ document.addEventListener("click", (e) => {
         document.getElementById("locationDropdown").style.display = "none";
     }
 });
-
-function toggleProfileDropdown(event) {
-    event.preventDefault();
-    let menu = document.getElementById("profileMenu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
-function logout() {
-    alert("Logging out...");
-    window.location.href = "login.html";
-}
-
-// **Start Packing Assistant**
 function startPackingAssistant() {
     let destination = prompt("Enter your travel destination:");
     if (!destination) return;
-
+    
     let weather = prompt("What's the expected weather? (e.g., sunny, rainy, cold, hot)");
     let activities = prompt("Enter your planned activities (e.g., hiking, swimming, sightseeing):");
-
+    
     let packingList = ["Passport/ID", "Travel tickets", "Wallet & Credit Cards", "Phone & Charger"];
-
+    
     if (weather.toLowerCase().includes("cold")) {
         packingList.push("Warm Jacket", "Gloves", "Scarf", "Boots");
     } else if (weather.toLowerCase().includes("hot")) {
@@ -68,7 +55,7 @@ function startPackingAssistant() {
     } else if (weather.toLowerCase().includes("rainy")) {
         packingList.push("Umbrella", "Raincoat", "Waterproof Shoes");
     }
-
+    
     if (activities.toLowerCase().includes("hiking")) {
         packingList.push("Hiking Boots", "Backpack", "Water Bottle", "Trail Map");
     }
@@ -78,11 +65,10 @@ function startPackingAssistant() {
     if (activities.toLowerCase().includes("sightseeing")) {
         packingList.push("Camera", "Guidebook", "Comfortable Shoes");
     }
-
+    
     alert("Your Smart Packing List:\n" + packingList.join("\n"));
-}
-
-// **Redirect Start Button to logedHome.html**
-function goToLoggedHome() {
-    window.location.href = "logedHome.html";
+    document.addEventListener("DOMContentLoaded", function () {
+        let username = localStorage.getItem("username") || "User";
+        document.getElementById("username").textContent = username;
+    });
 }
